@@ -3,39 +3,41 @@
 Ini adalah proyek backend untuk Sistem Pemantauan Akademik Siswa, yang dibangun untuk mengelola data akademik sekolah, memfasilitasi komunikasi, dan memungkinkan pemantauan oleh guru, siswa, dan orang tua.
 
 ---
+
 ## 🚀 Fitur Utama
 
 Sistem ini memiliki fungsionalitas yang disesuaikan untuk setiap peran pengguna:
 
 * **Admin Sistem**
-    * [cite_start]Mengelola seluruh akun pengguna (tambah, edit, hapus). [cite: 6]
-    * [cite_start]Mengelola data master seperti kelas, mata pelajaran, dan tahun ajaran. [cite: 6]
-    * [cite_start]Menetapkan guru mata pelajaran dan wali kelas. [cite: 6]
-    * [cite_start]Mengatur penempatan siswa di kelas. [cite: 6]
+    * Mengelola seluruh akun pengguna (tambah, edit, hapus).
+    * Mengelola data master seperti kelas, mata pelajaran, dan tahun ajaran.
+    * Menetapkan guru mata pelajaran dan wali kelas.
+    * Mengatur penempatan siswa di kelas.
 
 * **Guru Mata Pelajaran**
-    * [cite_start]Melihat jadwal mengajar pribadi. [cite: 8]
-    * [cite_start]Menginput dan mengedit nilai harian serta ujian siswa. [cite: 8]
-    * [cite_start]Mencatat kehadiran siswa per sesi pelajaran. [cite: 8]
-    * [cite_start]Melihat rekapitulasi nilai dan kehadiran. [cite: 8]
+    * Melihat jadwal mengajar pribadi.
+    * Menginput dan mengedit nilai harian serta ujian siswa.
+    * Mencatat kehadiran siswa per sesi pelajaran.
+    * Melihat rekapitulasi nilai dan kehadiran.
 
 * **Wali Kelas**
-    * [cite_start]Memantau daftar siswa di kelas perwaliannya. [cite: 10]
-    * [cite_start]Melihat progres akademik dan kehadiran semua siswa di kelasnya. [cite: 10]
-    * [cite_start]Mengirim pengumuman penting ke siswa dan orang tua. [cite: 10]
-    * [cite_start]Melakukan verifikasi untuk akun orang tua yang terhubung dengan siswa. [cite: 10]
+    * Memantau daftar siswa di kelas perwaliannya.
+    * Melihat progres akademik dan kehadiran semua siswa di kelasnya.
+    * Mengirim pengumuman penting ke siswa dan orang tua.
+    * Melakukan verifikasi untuk akun orang tua yang terhubung dengan siswa.
 
 * **Siswa**
-    * [cite_start]Melihat profil, nilai akademik, dan riwayat kehadiran pribadi. [cite: 12]
-    * [cite_start]Melihat jadwal pelajaran mingguan. [cite: 12]
-    * [cite_start]Menerima pengumuman dari wali kelas. [cite: 12]
+    * Melihat profil, nilai akademik, dan riwayat kehadiran pribadi.
+    * Melihat jadwal pelajaran mingguan.
+    * Menerima pengumuman dari wali kelas.
 
 * **Orang Tua**
-    * [cite_start]Menghubungkan akunnya dengan data akademik anak. [cite: 14]
-    * [cite_start]Memantau nilai, kehadiran, dan jadwal pelajaran anak. [cite: 14]
-    * [cite_start]Menerima notifikasi dan pengumuman penting dari sekolah. [cite: 14]
+    * Menghubungkan akunnya dengan data akademik anak.
+    * Memantau nilai, kehadiran, dan jadwal pelajaran anak.
+    * Menerima notifikasi dan pengumuman penting dari sekolah.
 
 ---
+
 ## 🛠️ Teknologi yang Digunakan
 
 * **Backend**: .NET 8 (C#)
@@ -43,56 +45,74 @@ Sistem ini memiliki fungsionalitas yang disesuaikan untuk setiap peran pengguna:
 * **Object-Relational Mapper (ORM)**: Entity Framework Core 8
 
 ---
-## ⚙️ Instalasi dan Konfigurasi Lokal
 
-Untuk menjalankan proyek ini di komputer lokal Anda, ikuti langkah-langkah berikut:
+## ⚙️ Panduan Instalasi dan Konfigurasi
 
-1.  **Instal .NET 8 SDK**
-    * Cek apakah .NET sudah terinstal dengan membuka terminal dan menjalankan perintah:
-        ```bash
-        dotnet --version
-        ```
-    * Jika perintah tersebut gagal atau versinya bukan 8.x.x, unduh dan instal .NET 8 SDK dari [situs resmi Microsoft](https://dotnet.microsoft.com/download).
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal.
 
-2.  **Clone Repositori Ini**
+### Prasyarat
+
+Pastikan perangkat lunak berikut sudah terinstal di komputer Anda:
+* [.NET 8 SDK](https://dotnet.microsoft.com/download)
+* [Git](https://git-scm.com/downloads)
+* MySQL Server
+
+### Langkah-langkah Instalasi
+
+1.  **Clone Repositori**
+    Buka terminal dan jalankan perintah berikut untuk mengunduh proyek.
     ```bash
     git clone [https://github.com/NAMA_USER_ANDA/SistemAkademik.git](https://github.com/NAMA_USER_ANDA/SistemAkademik.git)
     cd SistemAkademik
     ```
 
-3.  **Konfigurasi Database**
-    * Buka file `appsettings.json`.
-    * Ubah `ConnectionStrings` agar sesuai dengan konfigurasi MySQL lokal Anda.
+2.  **Konfigurasi Koneksi Database**
+    Buka file `appsettings.json` dan sesuaikan bagian `ConnectionStrings` dengan konfigurasi MySQL Anda.
     ```json
     "ConnectionStrings": {
       "DefaultConnection": "Server=localhost;Database=sistem_akademik_db;User=root;Password=PASSWORD_ANDA;"
     }
     ```
 
-4.  **Restore Semua Package yang Dibutuhkan**
+3.  **Instal Dependensi**
+    Jalankan perintah ini untuk mengunduh semua paket yang dibutuhkan oleh proyek.
     ```bash
     dotnet restore
     ```
 
-5.  **Buat Database Menggunakan Entity Framework Core**
-    * Perintah ini akan membaca model dan membuat semua tabel di database MySQL Anda.
+4.  **Buat Database (Migrasi)**
+    Perintah ini akan secara otomatis membuat database `sistem_akademik_db` beserta semua tabelnya berdasarkan model yang ada.
     ```bash
     dotnet ef database update
     ```
 
-6.  **Jalankan Proyek**
+5.  **Jalankan Proyek**
+    Gunakan perintah berikut untuk menjalankan server backend.
     ```bash
     dotnet run
     ```
-    Aplikasi sekarang akan berjalan dan dapat diakses melalui `http://localhost:<port>`.
+    Aplikasi akan berjalan dan siap menerima permintaan. URL akan ditampilkan di terminal (contoh: `http://localhost:5123`).
 
 ---
+
+## 📄 Dokumentasi API (Swagger)
+
+Setelah proyek berhasil dijalankan, Anda dapat mengakses dokumentasi API interaktif (Swagger UI) untuk melihat semua endpoint yang tersedia dan langsung mencobanya.
+
+Buka browser dan navigasi ke:
+**`http://localhost:<PORT>/swagger`**
+
+Ganti `<PORT>` dengan nomor port yang ditampilkan di terminal saat Anda menjalankan proyek.
+
+---
+
 ## 📊 Skema Database
 
 Struktur database dirancang untuk mendukung semua fungsionalitas yang ada. Model Entity Framework Core dibuat berdasarkan skema relasional berikut:
 
-![Skema Database](https://i.imgur.com/uR1j9sM.png)
+![Skema Database](https://dbdiagram.io/d/68856629cca18e685ce1bd2e)
 
 ---
 
-Dibuat oleh [Nama Anda]
+Dibuat oleh **[GENERASI EduTech
+]**
