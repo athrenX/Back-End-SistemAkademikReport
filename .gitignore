@@ -1,0 +1,18 @@
+# Dependencies
+/bin/
+/obj/
+
+# User-specific files
+*.user
+*.suo
+appsettings.Development.json
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Rider
+.idea/
+
+# Visual Studio
+.vs/
