@@ -110,7 +110,7 @@ Ganti `<PORT>` dengan nomor port yang ditampilkan di terminal saat Anda menjalan
 
 Struktur database dirancang untuk mendukung semua fungsionalitas yang ada. Model Entity Framework Core dibuat berdasarkan skema relasional berikut:
 
-![Skema Database](https://dbdiagram.io/d/68856629cca18e685ce1bd2e)
+![Skema Database] https://dbdiagram.io/d/68856629cca18e685ce1bd2e
 
 ---
 
